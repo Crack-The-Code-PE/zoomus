@@ -263,7 +263,7 @@ def generate_jwt(key, secret):
 
     payload = {"iss": key, "exp": int(time.time() + 3600)}
 
-    token = jwt.encode(payload, secret, algorithm="HS256", headers=header)
+    token = str(jwt.encode(payload, secret, algorithm="HS256", headers=header), 'utf-8')
     return token
 
 
