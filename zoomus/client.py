@@ -64,7 +64,7 @@ class ZoomClient(util.ApiClient):
             "api_secret": api_secret,
             "data_type": data_type,
             "version": version,
-            "token": util.generate_jwt(api_key, api_secret),
+            "token": str(util.generate_jwt(api_key, api_secret), 'utf-8'),
         }
 
         # Instantiate the components
@@ -81,7 +81,7 @@ class ZoomClient(util.ApiClient):
 
     def refresh_token(self):
         self.config["token"] = (
-            util.generate_jwt(self.config["api_key"], self.config["api_secret"]),
+            str(util.generate_jwt(self.config["api_key"], self.config["api_secret"]), 'utf-8'),
         )
 
     @property
