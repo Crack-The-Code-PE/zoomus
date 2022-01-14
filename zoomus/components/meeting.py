@@ -19,6 +19,10 @@ class MeetingComponent(base.BaseComponent):
         util.require_keys(kwargs, ["host_id", "topic", "type"])
         if kwargs.get("start_time"):
             kwargs["start_time"] = util.date_to_str(kwargs["start_time"])
+            print("*******************11111111")
+            print(kwargs["start_time"])
+        print("*******************22222")
+        print(kwargs)
         return self.post_request("/meeting/create", params=kwargs)
 
     def update(self, **kwargs):
