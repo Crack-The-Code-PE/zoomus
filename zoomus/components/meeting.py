@@ -54,7 +54,11 @@ class MeetingComponentV2(base.BaseComponent):
     def create(self, **kwargs):
         util.require_keys(kwargs, "user_id")
         if kwargs.get("start_time"):
+            print("*******************3333333")
+            print(kwargs["start_time"])
             kwargs["start_time"] = util.date_to_str(kwargs["start_time"])
+        print("*******************44444444")
+        print(kwargs)
         return self.post_request(
             "/users/{}/meetings".format(kwargs.get("user_id")), data=kwargs
         )
